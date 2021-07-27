@@ -26,7 +26,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: MyFirstRuby
+  url: <%= ENV['CLEARDB_DATABASE_URL'] %>
+#  database: heroku_bfecd047063e27c
+  username: b019a49d27b423
+  password: <%= ENV['MYFIRSTRUBY_DATABASE_PASSWORD'] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -51,6 +54,6 @@ test:
 production:
   <<: *default
   url: <%= ENV['CLEARDB_DATABASE_URL'] %>
-  database: heroku_bfecd047063e27c
+#  database: heroku_bfecd047063e27c
   username: b019a49d27b423
   password: <%= ENV['MYFIRSTRUBY_DATABASE_PASSWORD'] %>
